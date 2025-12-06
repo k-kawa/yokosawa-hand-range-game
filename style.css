@@ -327,7 +327,7 @@ h1 {
 .rank-d { background-color: var(--color-d); }
 .rank-e { background-color: var(--color-e); }
 .rank-f { background-color: var(--color-f); color: var(--color-dark-text); }
-.rank-g { background-color: var(--color-g); }
+.rank-g { background-color: var(--color-g); border: 2px solid var(--color-g-border); box-sizing: border-box; }
 .rank-h { background-color: var(--color-h); }
 .rank-i { background-color: var(--color-i); color: var(--color-dark-text); }
 
