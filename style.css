@@ -54,12 +54,12 @@
     --color-f-selected: #AAB7B8;
     --color-f-selected-border: #8D9A9B;
 
-    /* Action/Rank G (Grey/Purple) */
-    --color-g: #7F8C8D;
-    --color-g-border: #8E44AD;
-    --color-g-hover: #9B9B9B;
-    --color-g-selected: #6C7A7C;
-    --color-g-selected-border: #6C2B89;
+    /* Action/Rank G (Grey - now matches I for background, hover, selected) */
+    --color-g: var(--color-i);
+    --color-g-border: #8E44AD; /* Original G border color retained */
+    --color-g-hover: var(--color-i-hover);
+    --color-g-selected: var(--color-i-selected);
+    --color-g-selected-border: #6C2B89; /* Original G selected border color retained */
 
     /* Action/Rank H (Pink) */
     --color-h: #FF69B4;
@@ -204,11 +204,12 @@ h1 {
 
 #action-g {
     background-color: var(--color-g);
-    border-color: var(--color-g-border); /* 枠だけ赤紫 */
-    border-width: 10px; /* 枠を太くする */
+    border-color: var(--color-g-border);
+    border-width: 4px; /* Thicker border for better visibility */
 }
 #action-g:hover { background-color: var(--color-g-hover); }
 #action-g.selected-button { background-color: var(--color-g-selected); border-color: var(--color-g-selected-border); }
+
 
 #action-h {
     background-color: var(--color-h);
@@ -326,7 +327,7 @@ h1 {
 .rank-d { background-color: var(--color-d); }
 .rank-e { background-color: var(--color-e); }
 .rank-f { background-color: var(--color-f); color: var(--color-dark-text); }
-.rank-g { background-color: var(--color-g); border: 2px solid var(--color-g-border); box-sizing: border-box; }
+.rank-g { background-color: var(--color-g); }
 .rank-h { background-color: var(--color-h); }
 .rank-i { background-color: var(--color-i); color: var(--color-dark-text); }
 
