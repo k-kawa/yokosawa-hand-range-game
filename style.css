@@ -34,11 +34,11 @@
     --color-c-selected-border: #9C8008;
 
     /* Action/Rank D (Green) */
-    --color-d: #2ECC71;
-    --color-d-border: #27AE60;
-    --color-d-hover: #58D68D;
-    --color-d-selected: #1F8D4C;
-    --color-d-selected-border: #19723D;
+    --color-d: #228B22; /* Forest Green */
+    --color-d-border: #1E751E;
+    --color-d-hover: #3CB371; /* Medium Sea Green */
+    --color-d-selected: #155A15;
+    --color-d-selected-border: #0F400F;
 
     /* Action/Rank E (Light Blue) */
     --color-e: #3498DB;
