@@ -129,26 +129,25 @@ h1 {
     font-weight: bold;
     background-color: var(--color-text);
     box-shadow: 0 4px 10px var(--color-black-t-30);
-    color: var(--color-background);
+    /* color: var(--color-background); */ /* Removed to allow suit classes to dictate color */
 }
 
-.card span {
-    display: inline-block;
+.card > span { /* Target immediate children spans for rank and suit */
+    font-size: 2.5rem; /* Adjusted font size for both rank and suit symbol */
     line-height: 1;
 }
 
-[class^="suit-"] {
-    font-size: 2rem;
-    margin-left: 0.25em;
-}
-
-.suit-h, .suit-d {
+.card > span.suit-h,
+.card > span.suit-d {
     color: var(--color-b); /* Red */
 }
 
-.suit-s, .suit-c {
+.card > span.suit-s,
+.card > span.suit-c {
     color: var(--color-background); /* Black */
 }
+
+
 
 
 .action-grid {

@@ -138,8 +138,8 @@ function generateAndShowQuestion() {
     const suit1Symbol = getSuitSymbol(card1Suit);
     const suit2Symbol = getSuitSymbol(card2Suit);
 
-    card1Elem.innerHTML = `${card1Rank}<span class="suit-${card1Suit}">${suit1Symbol}</span>`;
-    card2Elem.innerHTML = `${card2Rank}<span class="suit-${card2Suit}">${suit2Symbol}</span>`;
+    card1Elem.innerHTML = `<span class="suit-${card1Suit}">${card1Rank}</span><span class="suit-${card1Suit}">${suit1Symbol}</span>`;
+    card2Elem.innerHTML = `<span class="suit-${card2Suit}">${card2Rank}</span><span class="suit-${card2Suit}">${suit2Symbol}</span>`;
 }
 
 function checkAnswer(userChoice, clickedButton) {
