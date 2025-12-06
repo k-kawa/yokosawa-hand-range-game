@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プリフロップ ハンドレンジ クイズ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="question">
+            <p>あなたのハンド:</p>
+            <div id="hand-display">
+                <div class="card" id="card1"></div>
+                <div class="card" id="card2"></div>
+            </div>
+        </div>
+        <div id="actions" class="action-grid">
+            <button id="action-a">A</button>
+            <button id="action-b">B</button>
+            <button id="action-c">C</button>
+            <button id="action-d">D</button>
+            <button id="action-e">E</button>
+            <button id="action-f">F</button>
+            <button id="action-g">G</button>
+            <button id="action-h">H</button>
+            <button id="action-i">I</button>
+        </div>
+        <div id="result">
+            <p id="result-message"></p>
+            <p id="correct-answer"></p>
+            <div id="chart-container" style="display: none;">
+                <!-- ハンドレンジ表がここに挿入されます -->
+            </div>
+        </div>
+        <button id="next-button" style="display: none;">次の問題へ</button>
+    </div>
+    <script src="app.js"></script>
+    <footer>
+        <p><a href="https://www.youtube.com/watch?v=NDouTGvor-k" target="_blank">解説動画はこちら</a></p>
+    </footer>
+</body>
+</html>

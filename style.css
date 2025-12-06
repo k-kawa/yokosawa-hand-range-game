@@ -1,0 +1,348 @@
+:root {
+    /* Base Colors */
+    --color-background: #2c3e50;
+    --color-text: #ecf0f1;
+    --color-container-bg: #34495e;
+    --color-container-border: #4a6572;
+    --color-muted-text: #bdc3c7;
+    --color-dark-text: #333;
+    --color-white: #fff;
+    --color-black-t-20: rgba(0,0,0,0.2);
+    --color-black-t-30: rgba(0,0,0,0.3);
+    --color-black-t-50: rgba(0,0,0,0.5);
+    --color-transparent: transparent;
+
+    /* Action/Rank A (Dark Blue) */
+    --color-a: #192A56;
+    --color-a-border: #15203D;
+    --color-a-hover: #243B6F;
+    --color-a-selected: #0F1A3A;
+    --color-a-selected-border: #0C152B;
+
+    /* Action/Rank B (Red) */
+    --color-b: #E74C3C;
+    --color-b-border: #C0392B;
+    --color-b-hover: #EC7063;
+    --color-b-selected: #A93226;
+    --color-b-selected-border: #8C2B21;
+
+    /* Action/Rank C (Yellow) */
+    --color-c: #F1C40F;
+    --color-c-border: #D4AC0D;
+    --color-c-hover: #F4D03F;
+    --color-c-selected: #B9990A;
+    --color-c-selected-border: #9C8008;
+
+    /* Action/Rank D (Green) */
+    --color-d: #2ECC71;
+    --color-d-border: #27AE60;
+    --color-d-hover: #58D68D;
+    --color-d-selected: #1F8D4C;
+    --color-d-selected-border: #19723D;
+
+    /* Action/Rank E (Light Blue) */
+    --color-e: #3498DB;
+    --color-e-border: #2980B9;
+    --color-e-hover: #5DADE2;
+    --color-e-selected: #21618C;
+    --color-e-selected-border: #1A4D6B;
+    
+    /* Action/Rank F (White) */
+    --color-f: #ECF0F1;
+    --color-f-border: #BDC3C7;
+    --color-f-hover: #FBFCFE;
+    --color-f-selected: #AAB7B8;
+    --color-f-selected-border: #8D9A9B;
+
+    /* Action/Rank G (Grey/Purple) */
+    --color-g: #7F8C8D;
+    --color-g-border: #8E44AD;
+    --color-g-hover: #9B9B9B;
+    --color-g-selected: #6C7A7C;
+    --color-g-selected-border: #6C2B89;
+
+    /* Action/Rank H (Pink) */
+    --color-h: #FF69B4;
+    --color-h-border: #E05BA2;
+    --color-h-hover: #FF85C1;
+    --color-h-selected: #CC5591;
+    --color-h-selected-border: #AA4477;
+    
+    /* Action/Rank I (Grey) */
+    --color-i: #BDC3C7;
+    --color-i-border: #95A5A6;
+    --color-i-hover: #CED4DA;
+    --color-i-selected: #9DA6AD;
+    --color-i-selected-border: #7A878B;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column; /* Added for sticky footer */
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: var(--color-text);
+    font-weight: 300;
+}
+
+#quiz-container {
+    flex-grow: 1; /* Added for sticky footer */
+    background: var(--color-container-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px var(--color-black-t-20);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid var(--color-container-border);
+    margin: auto; /* Center the quiz container */
+}
+
+#question p {
+    font-size: 1.2rem;
+    color: var(--color-muted-text);
+}
+
+#hand-display {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.card {
+    width: 70px;
+    height: 100px;
+    border: 1px solid var(--color-i-border);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background-color: var(--color-text);
+    box-shadow: 0 4px 10px var(--color-black-t-30);
+    color: var(--color-background);
+}
+
+.card span {
+    display: inline-block;
+    line-height: 1;
+}
+
+[class^="suit-"] {
+    font-size: 2rem;
+    margin-left: 0.25em;
+}
+
+.suit-h, .suit-d {
+    color: var(--color-b); /* Red */
+}
+
+.suit-s, .suit-c {
+    color: var(--color-background); /* Black */
+}
+
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* 各ボタンの個別のスタイル */
+#action-a {
+    background-color: var(--color-a);
+    border-color: var(--color-a-border);
+}
+#action-a:hover { background-color: var(--color-a-hover); }
+#action-a.selected-button { background-color: var(--color-a-selected); border-color: var(--color-a-selected-border); }
+
+#action-b {
+    background-color: var(--color-b);
+    border-color: var(--color-b-border);
+}
+#action-b:hover { background-color: var(--color-b-hover); }
+#action-b.selected-button { background-color: var(--color-b-selected); border-color: var(--color-b-selected-border); }
+
+#action-c {
+    background-color: var(--color-c);
+    border-color: var(--color-c-border);
+    color: var(--color-dark-text); /* 黄色上で見やすいように文字色を調整 */
+}
+#action-c:hover { background-color: var(--color-c-hover); }
+#action-c.selected-button { background-color: var(--color-c-selected); border-color: var(--color-c-selected-border); }
+
+#action-d {
+    background-color: var(--color-d);
+    border-color: var(--color-d-border);
+}
+#action-d:hover { background-color: var(--color-d-hover); }
+#action-d.selected-button { background-color: var(--color-d-selected); border-color: var(--color-d-selected-border); }
+
+#action-e {
+    background-color: var(--color-e);
+    border-color: var(--color-e-border);
+}
+#action-e:hover { background-color: var(--color-e-hover); }
+#action-e.selected-button { background-color: var(--color-e-selected); border-color: var(--color-e-selected-border); }
+
+#action-f {
+    background-color: var(--color-f);
+    border-color: var(--color-f-border);
+    color: var(--color-dark-text); /* 白上で見やすいように文字色を調整 */
+}
+#action-f:hover { background-color: var(--color-f-hover); }
+#action-f.selected-button { background-color: var(--color-f-selected); border-color: var(--color-f-selected-border); }
+
+#action-g {
+    background-color: var(--color-g);
+    border-color: var(--color-g-border); /* 枠だけ赤紫 */
+    border-width: 10px; /* 枠を太くする */
+}
+#action-g:hover { background-color: var(--color-g-hover); }
+#action-g.selected-button { background-color: var(--color-g-selected); border-color: var(--color-g-selected-border); }
+
+#action-h {
+    background-color: var(--color-h);
+    border-color: var(--color-h-border);
+}
+#action-h:hover { background-color: var(--color-h-hover); }
+#action-h.selected-button { background-color: var(--color-h-selected); border-color: var(--color-h-selected-border); }
+
+#action-i {
+    background-color: var(--color-i);
+    border-color: var(--color-i-border);
+    color: var(--color-dark-text); /* グレー上で見やすいように文字色を調整 */
+}
+#action-i:hover { background-color: var(--color-i-hover); }
+#action-i.selected-button { background-color: var(--color-i-selected); border-color: var(--color-i-selected-border); }
+
+/* 共通のボタン基本スタイル (個別の設定で上書きされないもの) */
+.action-grid button {
+    height: 60px; /* 高さを固定 */
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-width: 1px; /* 枠の太さは共通 */
+    border-style: solid; /* 枠のスタイルは共通 */
+    border-radius: 4px;
+    color: var(--color-white); /* デフォルトの文字色、個別に指定がない場合は白 */
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    box-shadow: 0 2px 5px var(--color-black-t-20);
+    box-sizing: border-box; /* サイズの統一 */
+}
+
+.action-grid button:disabled {
+    opacity: 0.4; /* 無効時は半透明 */
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* 選択されたボタンのスタイル (個別の背景色を上書き) */
+.action-grid button.selected-button {
+    /* 選択された時の背景色や影は各ボタンで定義 */
+    transform: translateY(0); /* 選択時は浮き上がらない */
+    cursor: default; /* 選択後はカーソルを変更 */
+    box-shadow: inset 0 0 8px var(--color-black-t-50); /* 押し込まれたような影 */
+}
+
+
+
+#next-button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-e); /* Blue */
+    color: var(--color-white);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#next-button:hover {
+    background-color: var(--color-e-hover);
+    transform: translateY(-2px);
+}
+
+#result {
+    margin-top: 1.5rem;
+    min-height: 50px;
+}
+
+#result-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#correct-answer {
+    font-size: 1rem;
+    color: var(--color-i-border);
+}
+
+
+/* --- Hand Range Chart Styles --- */
+#chart-container {
+    margin-top: 2rem;
+    max-width: 100%;
+    overflow-x: auto; /* For small screens */
+}
+
+#hand-range-chart {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr); /* 13 ranks + 1 header column */
+    gap: 2px;
+    font-size: 0.6rem;
+    min-width: 380px; /* Prevent excessive shrinking */
+}
+
+.chart-cell {
+    aspect-ratio: 1 / 1; /* Make cells square */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    font-weight: bold;
+    color: var(--color-white);
+}
+
+.chart-header {
+    background-color: var(--color-transparent);
+    color: var(--color-muted-text);
+}
+
+.rank-a { background-color: var(--color-a); }
+.rank-b { background-color: var(--color-b); }
+.rank-c { background-color: var(--color-c); color: var(--color-dark-text); }
+.rank-d { background-color: var(--color-d); }
+.rank-e { background-color: var(--color-e); }
+.rank-f { background-color: var(--color-f); color: var(--color-dark-text); }
+.rank-g { background-color: var(--color-g); border: 2px solid var(--color-g-border); box-sizing: border-box; }
+.rank-h { background-color: var(--color-h); }
+.rank-i { background-color: var(--color-i); color: var(--color-dark-text); }
+
+/* --- Footer Styles --- */
+footer {
+    padding: 1rem;
+    text-align: center;
+}
+
+footer a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
