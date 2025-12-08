@@ -259,7 +259,8 @@ h1 {
 
 
 #next-button {
-    margin-top: 1rem;
+    display: block; /* ブロック要素にしてマージンを自動調整 */
+    margin: 1rem auto; /* 上下1rem、左右autoで中央揃え */
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
     cursor: pointer;
