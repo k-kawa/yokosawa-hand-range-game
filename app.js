@@ -27,7 +27,7 @@ i18next
     fallbackLng: 'ja', // フォールバック言語
     debug: true, // 開発中はtrueにするとコンソールに情報が出る
     backend: {
-      loadPath: '/locales/{{lng}}.json', // 言語ファイルのパス
+      loadPath: 'locales/{{lng}}.json', // 言語ファイルのパス
     },
   }, (err, t) => {
     if (err) return console.error(err);
