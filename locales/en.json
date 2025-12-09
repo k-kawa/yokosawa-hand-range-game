@@ -1,0 +1,10 @@
+{
+    "title": "Preflop Hand Range Quiz",
+    "yourHand": "Your Hand:",
+    "nextButton": "Next Question",
+    "correct": "Correct!",
+    "incorrect": "Incorrect",
+    "correctAnswerIs": "The correct answer was Rank '{{rank}}'. (Hand: {{hand}})",
+    "commentaryLink": "Watch the commentary video",
+    "developerNoteLink": "Developer's Note Article"
+}

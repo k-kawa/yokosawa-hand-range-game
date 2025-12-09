@@ -347,3 +347,24 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+/* --- Language Selector Styles --- */
+#language-selector {
+    margin-bottom: 1.5rem; /* フッターのリンクとの間隔 */
+}
+
+#language-selector select {
+    background-color: var(--color-container-bg); /* 背景色をコンテナと合わせる */
+    color: var(--color-text); /* 文字色を基本色と合わせる */
+    border: 1px solid var(--color-container-border); /* 枠線の色 */
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* ドロップダウンの矢印の色を調整（ブラウザ間の差異あり） */
+#language-selector select:focus {
+    outline: none;
+    border-color: var(--color-e);
+}

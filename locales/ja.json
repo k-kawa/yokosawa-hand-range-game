@@ -1,0 +1,10 @@
+{
+    "title": "プリフロップ ハンドレンジ クイズ",
+    "yourHand": "あなたのハンド:",
+    "nextButton": "次の問題へ",
+    "correct": "正解！",
+    "incorrect": "不正解",
+    "correctAnswerIs": "正解はランク「{{rank}}」でした。(ハンド: {{hand}})",
+    "commentaryLink": "解説動画はこちら",
+    "developerNoteLink": "開発者のノート記事はこちら"
+}

@@ -1,3 +1,52 @@
+// --- i18next 初期化 ---
+// UIのテキストを更新する関数
+const updateContent = () => {
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    element.innerHTML = i18next.t(key);
+  });
+  document.title = i18next.t('title'); // ページタイトルも更新
+};
+
+// --- ここから追加 ---
+// 言語を切り替える関数
+const changeLanguage = (lang) => {
+  i18next.changeLanguage(lang, (err, t) => {
+    if (err) return console.error(err);
+    // テキストの再描画
+    updateContent();
+  });
+};
+// --- ここまで追加 ---
+
+// i18nextの初期化
+i18next
+  .use(i18nextHttpBackend) // http backend プラグインを使用
+  .init({
+    lng: navigator.language, // デフォルトの言語
+    fallbackLng: 'ja', // フォールバック言語
+    debug: true, // 開発中はtrueにするとコンソールに情報が出る
+    backend: {
+      loadPath: '/locales/{{lng}}.json', // 言語ファイルのパス
+    },
+  }, (err, t) => {
+    if (err) return console.error(err);
+
+    // --- ここから追加 ---
+    // ドロップダウンの表示を現在の言語に合わせる
+    const langSelector = document.querySelector('#language-selector select');
+    if (langSelector) {
+        // i18next.language は 'en-US' のようになる場合があるので、'en' のように2文字で切り出す
+        const currentLang = i18next.language.slice(0, 2);
+        langSelector.value = currentLang;
+    }
+    // --- ここまで追加 ---
+
+    // 初期化が完了したらUIを更新
+    updateContent();
+  });
+
+
 // DOM Elements
 const card1Elem = document.getElementById('card1');
 const card2Elem = document.getElementById('card2');
@@ -148,10 +197,10 @@ function checkAnswer(userChoice, clickedButton) {
 
     clickedButton.classList.add('selected-button');
 
-    resultMessageElem.textContent = isCorrect ? '正解！' : '不正解';
+    resultMessageElem.textContent = isCorrect ? i18next.t('correct') : i18next.t('incorrect');
     resultMessageElem.style.color = isCorrect ? '#2ecc71' : '#e74c3c';
     if (!isCorrect) {
-        correctAnswerElem.textContent = `正解はランク「${correctAnswer}」でした。(ハンド: ${handKey})`;
+        correctAnswerElem.textContent = i18next.t('correctAnswerIs', { rank: correctAnswer, hand: handKey });
         renderHandRangeChart();
         chartContainer.style.display = 'block';
     }

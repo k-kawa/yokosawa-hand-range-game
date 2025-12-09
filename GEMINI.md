@@ -59,3 +59,51 @@ HTML (`index.html`) は以下の主要な要素で構成されています。
 
 -   **解説動画**: [https://www.youtube.com/watch?v=NDouTGvor-k](https://www.youtube.com/watch?v=NDouTGvor-k)
 -   **開発者ノート**: [https://note.com/vivid_crab7784/n/n9fa464f24099](https://note.com/vivid_crab7784/n/n9fa464f24099)
+
+## 多言語対応 (Internationalization)
+
+このアプリケーションは `i18next` ライブラリを利用して多言語対応を実現しています。
+
+### 方針
+-   **ライブラリ**: `i18next` および `i18next-http-backend` を利用。CDN経由で読み込んでいます。
+-   **言語ファイル**: 翻訳データは `locales/` ディレクトリ内に `ja.json` や `en.json` といった形式のJSONファイルで管理します。
+-   **データ形式**: 各JSONファイルは `{ "translation": { "key": "value" } }` という構造を持ちます。`{{variable}}` の形式で、動的な値の埋め込み（補間）に対応しています。
+
+### 実装概要
+-   **HTML (`index.html`)**:
+    -   翻訳対象となる静的なテキスト要素には `data-i18n="key"` 属性を付与しています。
+    -   テキスト自体はJavaScriptによって動的に挿入されるため、HTML上では空になっている場合があります。
+-   **JavaScript (`app.js`)**:
+    -   アプリケーションの起動時に `i18next.init()` を呼び出し、言語ファイル（JSON）を非同期で読み込みます。
+    -   初期化完了後、`updateContent()` 関数が `data-i18n` 属性を持つすべてのHTML要素のテキストを更新します。
+    -   `checkAnswer` 関数内など、JavaScriptで動的に生成されるメッセージは `i18next.t('key', { ... })` を使って取得しています。
+
+### 注意点
+-   言語ファイルは `fetch` API を通じて読み込まれるため、このアプリケーションをローカル環境で動作させるには **Webサーバーが必要**です。`index.html` を `file://` プロトコルで直接開いても正しく動作しません。
+
+## ローカルでの動作確認 (Local Development Setup)
+
+このアプリケーションをローカル環境で開発・動作確認するには、Webサーバーが必要です。Node.js と npm がインストールされていることを前提に、`http-server` を利用した簡単なセットアップ方法を説明します。
+
+### セットアップ手順
+
+1.  **`http-server` のインストール** (初回のみ)
+    ```bash
+    npm install -g http-server
+    ```
+2.  **プロジェクトディレクトリへの移動**
+    アプリケーションのルートディレクトリ（`index.html` が存在する場所）に移動します。
+    ```bash
+    cd /path/to/yokosawa-hand-range-game
+    ```
+3.  **Webサーバーの起動**
+    ```bash
+    http-server
+    ```
+    サーバーが起動すると、通常 `http://127.0.0.1:8080` や `http://localhost:8080` のようなURLが表示されます。
+
+4.  **ブラウザでアクセス**
+    表示されたURLをWebブラウザで開いてください。アプリケーションが動作し、多言語機能も正しく動作するはずです。
+
+### 重要な注意点
+-   **`file://` プロトコルでのアクセスは不可**: `index.html` ファイルをブラウザに直接ドラッグ＆ドロップするなどして `file://` プロトコルで開くと、ブラウザのセキュリティ制限により多言語機能が動作しません。必ず `http-server` などでWebサーバーを起動し、`http://` で始まるURLでアクセスしてください。
