@@ -25,6 +25,7 @@ i18next
   .init({
     lng: navigator.language, // デフォルトの言語
     fallbackLng: 'ja', // フォールバック言語
+    supportedLngs: ['en', 'ja'], // サポートする言語のリスト
     debug: true, // 開発中はtrueにするとコンソールに情報が出る
     backend: {
       loadPath: 'locales/{{lng}}.json', // 言語ファイルのパス
